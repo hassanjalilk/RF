@@ -1,9 +1,15 @@
 RF::Application.routes.draw do
 
+  # get 'users/new'
+
+  # get 'users/create'
+
   root 'products#index'
+
 
   resources :products 
   resources :users
+  resources: :users, :only => {:new, :create}
 
 
 end
