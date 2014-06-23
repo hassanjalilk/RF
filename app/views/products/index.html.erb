@@ -1,0 +1,27 @@
+<h1> Products </h1>
+
+
+<div>
+	<%= link_to "Create a new Product", new_product_path %>
+</div>
+
+<div>
+	<%= link_to "Sign Up", new_user_path %>
+</div>
+
+<div>
+	<%= link_to "Log In", users_path %>
+</div>
+
+
+
+<% @products.each do |product| %>
+	<p> <%= link_to image_tag(product.url), product_url(product.id) %></p>
+<% end %>
+
+<!-- <p><img src="	http://upload.wikimedia.org/wikipedia/commons/7/7e/NN-K125MBGPG_Grill-Mikrowelle_silber_Panasonic.png"></p> -->
+
+
+
+<!-- <p><a href ="http://upload.wikimedia.org/wikipedia/commons/7/7e/NN-K125MBGPG_Grill-Mikrowelle_silber_Panasonic.png"></p> -->
+
