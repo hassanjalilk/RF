@@ -8,8 +8,7 @@ RF::Application.routes.draw do
 
 
   resources :products 
-  resources :users
-  resources: :users, :only => {:new, :create}
+  resources :users, :only => [:new, :create]
 
 
 end

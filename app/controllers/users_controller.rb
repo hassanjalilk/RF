@@ -5,9 +5,9 @@ class UsersController < ApplicationController
   end
 
   def create
-  	@user = User.new(user_param)
+  	@user = User.new(user_params)
   	if @user.save
-  		redirect_to product_url, :notice => "Signed In"
+  		redirect_to products_url, :notice => "Signed In"
   	else
   		render :new
   	end
@@ -16,6 +16,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-  	param.require(:user).permit(:password, :email, :password_confirmation)
+  	params.require(:user).permit(:password, :email, :password_confirmation)
   end
 end
