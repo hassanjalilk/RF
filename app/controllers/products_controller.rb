@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  
-  before_filter :ensure_logged_in, :only => [:show]
+
+  before_filter :ensure_logged_in, :only => [:create]
 
   def index
   	@products = Product.all
@@ -26,24 +26,24 @@ class ProductsController < ApplicationController
   	@product = Product.new(product_params)
 
   	if @product.save
-  	redirect_to product_path(@products)
+  	redirect_to products_path(@products)
   	else
   	render :new
   	end
   end 
 
   def update
-  	@product = Prodcut.find([:id])
+  	@product = Product.find(params[:id])
 
-  	@product.update_attribute(product_params)
+  	@product.update_attributes(product_params)
   	redirect_to product_path(@product)
 
   end
 
   def destroy
-  	@product = @product.find(params[:id])
+  	@product = Product.find(params[:id])
   	@product.delete
-  	redirect_to product_path
+  	redirect_to products_path
   end
 
     private
