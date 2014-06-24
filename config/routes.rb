@@ -1,10 +1,10 @@
 RF::Application.routes.draw do
 
-  get 'sessions/new'
+  # get 'sessions/new'
 
-  get 'sessions/create'
+  # get 'sessions/create'
 
-  get 'sessions/destroy'
+  # get 'sessions/destroy'
 
   # get 'users/new'
 
