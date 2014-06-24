@@ -1,5 +1,11 @@
 RF::Application.routes.draw do
 
+  # get 'review/show'
+
+  # get 'review/create'
+
+  # get 'review/destroy'
+
   # get 'sessions/new'
 
   # get 'sessions/create'
@@ -12,13 +18,19 @@ RF::Application.routes.draw do
 
   root 'products#index'
 
+  resources :products do
+    resources :reviews, :only => [:show, :create, :destroy]
+  end
+
+
+
 
   resources :products 
   resources :users, :only => [:new, :create]
   resources :sessions, :only => [:new, :destroy, :create]
-
-
 end
+
+# end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
