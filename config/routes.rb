@@ -1,5 +1,11 @@
 RF::Application.routes.draw do
 
+  get 'sessions/new'
+
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
   # get 'users/new'
 
   # get 'users/create'
@@ -9,6 +15,7 @@ RF::Application.routes.draw do
 
   resources :products 
   resources :users, :only => [:new, :create]
+  resources :sessions, :only => [:new, :destroy, :create]
 
 
 end
