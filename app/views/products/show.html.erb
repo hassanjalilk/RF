@@ -21,7 +21,14 @@
 
   <p>Reviews for <%= @product.name %></p>
 
-  <% @product.reviews.each do |review| %>
+
+  <div id="review-list">
+    <%= render :partial => "reviews" %>
+  </div>
+
+</div>
+
+<!--   <% @product.reviews.each do |review| %>
     <p>
       <%= review.create %>
       <br>
@@ -30,7 +37,7 @@
         Added on: <%= review.created_at %>
       <% end %>
      </p>
-    <% end %>
+    <% end %> -->
 
       <% if current_user %>
       
@@ -43,15 +50,15 @@
 
   <h4>New Review</h4>
 
-  <%= form_for([@product, @review]) do |f| %>
+  <%= form_for([@product, @review]), :remote => true do |f| %>
     <% if @review.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
         <ul>
-        <% @review.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
+          <% @review.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
         </ul>
       </div>
     <% end %>

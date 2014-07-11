@@ -1,5 +1,7 @@
 
 
+
+
 <h1>Sign Up</h1>
 
 <%= form_for @user do |f| %>
@@ -14,6 +16,12 @@
     </div>
   <% end %>
 
+
+
+  <div class="field">
+    <%= label_tag :name %><br>
+    <%= text_field :name, params[:name] %>
+  </div>
   
   <div class="field">
     <%= f.label :email %><br/>
