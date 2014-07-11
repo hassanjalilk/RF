@@ -52,14 +52,12 @@
 
   <%= form_for [@product, @review], :remote => true do |f| %>
 
+  <div id="review-list">
+    <%= render :partial => "reviews" %>
+  </div>
+
   <div id="review-form-errors">
-    <% if @review.errors.present? %>
-      <% @review.errors.full_messages.each do |error| %>
-        <div class="alert">
-          <%= error %>
-        </div>
-      <% end %>
-    <% end %>
+    <%= render :partial => "/products/review_form_errors" %>
   </div>
 
 <!--   <%= form_for([@product, @review]), #:remote => true do |f| %>
